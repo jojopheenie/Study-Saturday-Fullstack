@@ -41,7 +41,6 @@ export default class Main extends Component {
   }
 
   async addStudent(newStudent) {
-    //what is data
     console.log('NEW STUDENT in ADD Student -main', newStudent)
     const {data} = await axios.post('/student', newStudent)
     console.log('DATA IN addStudent - Main', data)

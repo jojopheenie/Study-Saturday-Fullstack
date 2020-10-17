@@ -39369,7 +39369,6 @@ var Main = function (_Component) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                //what is data
                 console.log('NEW STUDENT in ADD Student -main', newStudent);
                 _context2.next = 3;
                 return _axios2.default.post('/student', newStudent);
@@ -40357,7 +40356,7 @@ module.exports = function spread(callback) {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _react = __webpack_require__(49);
@@ -40367,30 +40366,30 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var StudentList = function StudentList(props) {
-    console.log("PROPS in StudentList", props);
-    return _react2.default.createElement(
-        "tbody",
-        null,
-        props.students.map(function (student) {
-            return _react2.default.createElement(
-                "tr",
-                { key: student.id },
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    student.fullName
-                ),
-                _react2.default.createElement(
-                    "td",
-                    { onClick: function onClick() {
-                            return props.selectStudent(student);
-                        } },
-                    "Details"
-                )
-            );
-        })
-    );
-};
+	console.log('PROPS in StudentList', props);
+	return _react2.default.createElement(
+		'tbody',
+		null,
+		props.students.map(function (student) {
+			return _react2.default.createElement(
+				'tr',
+				{ key: student.id },
+				_react2.default.createElement(
+					'td',
+					null,
+					student.fullName
+				),
+				_react2.default.createElement(
+					'td',
+					{ onClick: function onClick() {
+							return props.selectStudent(student);
+						} },
+					'Details'
+				)
+			);
+		})
+	);
+}; /** @format */
 
 exports.default = StudentList;
 
