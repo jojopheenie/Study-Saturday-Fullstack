@@ -1,11 +1,11 @@
 import React from 'react';
 
 const StudentList = (props) => {
-    console.log("p", props)
+    console.log("PROPS in StudentList", props)
     return (
         <tbody>
         {
-            props.students 
+            props.students
             .map(student =>
                 (
                     <tr key={student.id}>

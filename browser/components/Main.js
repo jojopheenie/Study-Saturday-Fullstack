@@ -16,6 +16,7 @@ export default class Main extends Component {
 
     this.selectStudent = this.selectStudent.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.addStudent = this.addStudent.bind(this);
   }
 
   componentDidMount() {
@@ -23,11 +24,11 @@ export default class Main extends Component {
   }
 
   async getStudents() {
-    console.log('fetching');
+    //console.log('MAIN getStrudents fetching');
     try {
       const { data } = await axios.get('/student');
       this.setState({ students: data });
-      console.log('THis is the State', this.state);
+      //console.log('STATE in Get STUDENTS - Main', this.state);
     } catch (err) {
       console.error(err);
     }
@@ -39,6 +40,17 @@ export default class Main extends Component {
     });
   }
 
+  async addStudent(newStudent) {
+    //what is data
+    console.log('NEW STUDENT in ADD Student -main', newStudent)
+    const {data} = await axios.post('/student', newStudent)
+    console.log('DATA IN addStudent - Main', data)
+    this.setState({
+      students: [...this.state.students, data],
+      showStudent: false
+    })
+  }
+
   handleClick(e) {
     return this.setState({
       showStudent: !this.state.showStudent,
@@ -46,12 +58,12 @@ export default class Main extends Component {
   }
 
   render() {
-    console.log('this is the state in main', this.state);
+    //console.log('this is the state in main', this.state);
     return (
       <div>
         <h1>Students</h1>
         <button onClick={this.handleClick}>Add Student</button>
-        {this.state.showStudent ? <NewStudentForm /> : null}
+        {this.state.showStudent ? <NewStudentForm addStudent={this.addStudent} /> : null}
         <table>
           <thead>
             <tr>
